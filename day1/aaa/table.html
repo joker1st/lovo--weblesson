@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>网页中表格的处理</title>
+</head>
+<body>
+<!-- 
+	表格：table
+	行：tr
+	列：td
+	边框属性：border
+	合并单元格：rowspan 行合并  colspan 列合并    必须写在th或td的属性上
+	-->
+<table border="1" cellspacing="0" style="width: 500px;height: 100px;text-align: center;">
+<tr><td>张三</td><td>18</td><td>女</td> </tr>
+<tr><td>张四</td><td>16</td><td>男</td> </tr>
+</table><br><br>
+<!--第二张表  -->
+<table  border="1" cellspacing="0" style="width: 500px;">
+<thead>
+<tr><th colspan="3">LOVO成绩表</th></tr>
+<tr><th>姓名</th><th>班级</th><th>成绩</th></tr><!-- 表头默认加粗加黑居中 ，表头可以放多行 -->
+<!-- <tr><th>姓名</th><th>班级</th><th>成绩</th> </tr> -->
+</thead>
+<tbody >
+<tr><td>如花</td><td>J151</td><td>90</td> </tr>
+<tr><td>翠花</td><td>J148</td><td>88</td> </tr>
+<tr><td>柳岩</td><td>J149</td><td>89</td> </tr>
+<tr><td>波多野结衣</td><td>J149</td><td>69</td> </tr>
+<tr><td rowspan="2">张三</td><td rowspan="2">J149</td><td>50</td> </tr>
+<tr><td>55 </td> </tr>
+</tbody>
+</table><br><br>
+
+<a href="first.html" target="first" >first.html的链接</a><br><br>
+<!-- iframe:网页中嵌套显示另一个网页   src:路径  scrolling：设置滚动条 frameborder:0不显示边框 1显示边框  -->
+<iframe  src=""  width="600px"  height="400px" scrolling="auto"  frameborder="0" name="first"></iframe>
+
+
+
+</body>
+</html>
