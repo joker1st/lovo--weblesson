@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	//获取下拉框 selected  获取单选，复选  checked
+	$("#moveSelRight").bind("click",function(){
+		//把选中的项移动到右边
+		//获取选中的项
+		//var selectedArr = $("#sell option:selected");
+		//console.log(selectedArr.length);
+		$("#sell option:selected").each(function(){
+			//$(this)指代的是数组中当前执行function方法的jquery对象
+			console.log($(this).html());
+			//把选中的项添加到右边
+			$("#selr").append($(this));
+		});
+	});
+	
+	$("#interesting input[type=button]").click(function(){
+		//获取复选选中的项
+		$("#interesting input:checked").each(function(){
+			console.log($(this).val());
+		});
+	});
+	/* $("#interesting input[type=checkbox]").click(function(){
+		console.log($(this).val());
+	}); */
+	//事件委派 jquery 1.9之后的写法
+	//jquery 1.8及以前写法$('#interesting input').live('click', function() { console.log($(this).val()); });
+	$("#interesting").on("click","input",function(){
+		console.log($(this).val());
+	});
+	
+	$("#interesting").append("<input type='checkbox' value='健身'>健身");
+	
+
+});
+</script>
+</head>
+<body>
+<!--让下拉框多选 multiple="multiple"  展示多个 size  -->
+<select id="sell" multiple="multiple"  size=15 style="width: 150px;">
+	<option>选项一 </option>
+	<option>选项二 </option>
+	<option>选项三 </option>
+	<option>选项四 </option>
+	<option>选项五 </option>
+</select>
+
+<input id="moveSelRight" type="button" value=">">
+<input type="button" value=">>">
+<input type="button" value="<">
+<input type="button" value="<<">
+<select id="selr" multiple="multiple"  size=15 style="width: 150px;">
+	<option>选项1 </option>
+	<option>选项2 </option>
+	<option>选项3 </option>
+	<option>选项4 </option>
+	<option>选项5 </option>
+</select>
+<div id="interesting">
+兴趣爱好：<input type="checkbox" value="学习">学习
+<input type="checkbox" value="阅读">阅读
+<input type="checkbox" value="爬山">爬山
+<input type="checkbox" value="写作业">写作业
+<input type="checkbox" value="扶老奶奶">扶老奶奶
+<input type="button" value="获取选中的选项">
+</div>
+</body>
+</html>

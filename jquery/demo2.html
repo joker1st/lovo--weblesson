@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+
+$(function(){
+	//添加事件绑定
+	/* $(".aa").blur(function(){
+		console.log("失去焦点");
+	}); 
+	//删除事件绑定
+	$(".aa").unblur();
+	*/
+	$(".aa").bind("blur",function(){
+		console.log("失去焦点");
+		var current=$(this);//在jquery中$(this)，指代的是触发该方法的元素对象
+		var num=$(this).val();//数量
+		var price=$(this).parent("td").prev("td").html();//单价
+		var total=price*num;//单项总价
+		$(this).parent("td").next("td").html(total);
+		
+	});
+	
+	$("tbody tr").click(function(){
+		//$(this).css("backgroundColor","red");
+		//$(this).siblings("tr").css("backgroundColor","white");
+	/* 	if(!$(this).hasClass("bb")){
+			$(this).addClass("bb");//addClass参数不要再加.
+		}else {
+				$(this).removeClass("bb");
+		} */
+		$(this).removeClass("cc").toggleClass("bb");
+	
+		$(this).siblings("tr").removeClass("bb").addClass("cc");
+	});
+/* 	$(".aa").bind("blur",function(){
+		console.log("失去焦点了");
+	});
+	$(".aa").unbind(); */
+	//选中奇 偶行
+	//选中偶数行
+	//$("tbody tr:odd").css("backgroundColor","rgba(0,0,0,0.2)");
+	//选中奇数行
+	//$("tbody tr:even").css("backgroundColor","rgba(255,100,0,0.3)");
+	
+	$("input[type=button]").click(function(){
+		$(this).toggleClass("dd");
+	})
+	
+	var btn = document.getElementById("btn");//dom节点对象
+	console.log(btn.value)
+	//把dom节点对象转换成jquery对象
+	$(btn).css("backgroundColor","red");
+	//把jquery对象转换为dom节点对象
+	var btn1 = $("#btn1");
+	//btn1.css("backgroundColor","red");
+	var domBtn1=$(btn1)[0];
+	domBtn1.style.backgroundColor="blue";
+})
+function abc(){//在JS的方法中直接写this，指代的是拥有该方法的对象(window)
+	var current=this;
+	console.log("键盘弹起");
+}
+</script>
+<style type="text/css">
+.bb{
+	background-color: red;
+}
+.cc{
+	background-color: white;
+}
+.dd{
+	background-color: yellow;
+}
+</style>
+</head>
+<body>
+<table border="0" style="width: 400px;">
+<thead>
+<tr><th>商品名</th><th>单价</th><th>数量</th><th>单项总价</th> </tr>
+</thead>
+<tbody>
+<tr><td>鼠标</td><td>30</td><td><input class="aa" type="text" value="1" ></td><td>30</td> </tr>
+<tr><td>键盘</td><td>50</td><td><input class="aa" type="text" value="1"></td><td>50</td> </tr>
+<tr><td>耳机</td><td>10</td><td><input class="aa" type="text" value="1"></td><td>10</td> </tr>
+<tr><td>显示器</td><td>1000</td><td><input class="aa" type="text" value="1"></td><td>1000</td> </tr>
+<tr><td>CPU</td><td>1500</td><td><input class="aa" type="text" value="1"></td><td>1500</td> </tr>
+<tr><td>内存</td><td>600</td><td><input class="aa" type="text" value="1"></td><td>600</td> </tr>
+<tr><td>主板</td><td>600</td><td><input class="aa" type="text" value="1"></td><td>600</td> </tr>
+<tr><td>显卡</td><td>1800</td><td><input class="aa" type="text" value="1"></td><td>1800</td> </tr>
+</tbody>
+</table>
+<input type="button" value="按钮" >
+<input id="btn" type="button" value="点击按钮" >
+<input id="btn1" type="button" value="点击我" >
+
+</body>
+</html>

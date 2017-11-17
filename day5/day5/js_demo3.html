@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/js_demo3.js"></script>
+<style type="text/css">
+#div1{
+ width: 150px;
+}
+.cs1{
+	width: 150px;
+	height:40px;
+	text-align: center;
+	background-color: red;
+	cursor: pointer;
+	line-height:50px;
+	border: 1px solid green;
+}
+.cs2{
+	width: 150px;
+	height: 30px;
+	background-color: green;
+	border: 1px solid black;
+}
+#div6{
+	width: 20px;
+	height: 30px;
+	background-color: black;
+}
+
+</style>
+</head>
+<body>
+<p>王姑娘，白姑娘，一起坐在石头上</p>
+<input  type="button" value="点击出现答案" onclick='awe();' >
+<span id="awer" ></span>
+<div id="div1">
+	<div class="cs1" onclick="isDisplay('div2');" >射雕英雄传	</div>
+	 <div  id="div2" style="display: none;" >
+	 	<div class="cs2">郭靖</div>	
+	 	<div class="cs2">杨康</div>	
+	 	<div class="cs2">黄蓉</div>	
+	 	<div class="cs2">欧阳克</div>	
+	 </div>
+
+	<div class="cs1" onclick="isDisplay('div3');" >神雕侠侣 </div>
+		 <div  id="div3" style="display: none;">
+		 	<div class="cs2">杨过</div>	
+		 	<div class="cs2">小龙女</div>	
+		 	<div class="cs2">尹志平</div>	
+		 	<div class="cs2">李莫愁</div>	
+		
+	</div>
+	<div class="cs1"  onclick="isDisplay('div4');"  >倚天屠龙记	</div>
+		 <div  id="div4" style="display: none;" >
+		 	<div class="cs2">金毛狮王</div>	
+		 	<div class="cs2">张无忌</div>	
+		 	<div class="cs2">赵敏</div>	
+		 	<div class="cs2">周芷若</div>	
+		 	<div class="cs2">灭绝师太</div>	
+		 </div>
+
+	<div  class="cs1" onclick="isDisplay('div5');" >鹿鼎记</div>
+		 <div id="div5"  style="display: none;" >
+		 	<div class="cs2">韦小宝</div>	
+		 	<div class="cs2">海大富</div>	
+		 	<div class="cs2">康熙</div>	
+	</div>
+</div>
+<div id="div6"></div>
+<input type="button" value="点击" onclick="changeWidth();">
+<a href="javascript:alert('清除成功')">清除缓存</a>
+<div id="div7" style="width: 100px; height: 100px; background-color: red;"  onclick="getBigger()"></div>
+<img id="img1" alt="" src="img/cat.gif">
+<input type="button" value="点击更换"  onclick="chan()">
+</body>
+</html>

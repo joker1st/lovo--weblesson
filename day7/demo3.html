@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var speedX=1;
+var speedY=1;
+var div1;
+var fun;
+window.onload=function (){
+	div1 = document.getElementById("div1");
+	move();
+	div1.addEventListener("mouseout",function(){
+		//console.log("出去");
+		move();
+	});
+	div1.addEventListener("mouseover",function(){
+	//	console.log("进来");
+		window.clearTimeout(fun);
+	});
+	var btn = document.getElementById("btn");
+	btn.addEventListener("mousedown",function(){ console.log("鼠标按下");});
+	btn.addEventListener("mouseup",function(){ console.log("鼠标松开");});
+	btn.addEventListener("click",function(){ console.log("鼠标单击");});
+	//执行顺序 按下 松开 单击
+}
+function move(){
+	
+	var left =parseInt(div1.style.left);
+	var top = parseInt(div1.style.top);
+	
+	top = top+speedY;
+	left=left+speedX;
+	
+	div1.style.left=left+"px";
+	div1.style.top=top+"px";
+	//当div到达最右边返回       div1.style.left+div1.style.width >=window.innerWidth
+	if(left==0||left+200>=window.innerWidth){
+		speedX=speedX*-1;//负负得正
+	}
+	if(top==0||top+200>window.innerHeight){
+		speedY=speedY*-1;
+	}
+	fun=window.setTimeout("move()",10);
+}
+</script>
+</head>
+<body>
+<div  id="div1" style="width: 200px;height: 200px;background-color: red;position: fixed;left: 0px;top: 0px;">
+	喜迎19大，习总书记发表了重要讲话！
+</div>
+<input type="button" id="btn" value="按钮">
+</body>
+</html>

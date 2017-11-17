@@ -1,0 +1,69 @@
+@CHARSET "utf-8";
+#page{
+	width: 1000px;
+	height: 1600px;
+	margin: 0 auto;
+}
+#header{
+	height: 535px;
+	background-image: url("../img/hd_bg[1].png");
+	background-repeat: repeat-x;	
+}
+#header-top{
+	height: 59px;
+}
+#tag{
+	margin-left: 100px;
+	margin-top: 10px;
+	float: left;
+}
+#port{
+	list-style-type: none;
+	float: left;
+	margin: 0px;
+	padding: 0px;
+}
+#port li{
+	float: left;
+	width: 100px;
+	height: 59px;
+	text-align: center;
+	line-height: 59px;
+	cursor: pointer;
+/* 	font-family: "黑体"; */
+}
+#regedit{
+	font-size: 12px;
+	float: left;
+	margin-top: 22px;
+	margin-left: 20px;
+}
+#regedit a{
+	text-decoration: none;
+	color: gray;
+}
+#port li:hover{
+	color: rgb(85,85,255);
+	text-decoration: underline;
+}
+#header-foot{
+	height: 476px;
+}
+#center{
+	height: 865px;
+}
+#center-left{
+	float:left;
+	width: 650px;
+	height: 860px;
+	/* border: 1px solid red;  */
+}
+#center-right{
+	width: 350px;
+	height: 860px;
+/* 	border: 1px solid red;  */
+	float: left;
+}
+#footer{
+	height: 200px;
+}

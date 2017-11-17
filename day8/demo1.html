@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload=function (){
+	var sell=document.getElementById("sell");
+	var selr=document.getElementById("selr");
+	var moveSelRight = document.getElementById("moveSelRight");
+	
+	moveSelRight.addEventListener("click",function(){
+		//先获取选中项，把选中项从左边移动到右边  appendChild  removeChild
+		var options = sell.getElementsByTagName("option");
+		for(var i=0;i<options.length;i++){
+			if(options[i].selected){
+				//千万记住：元素节点只有移动，没有复制，当把这个元素添加到其它元素中，则自动不在原来的的元素中了
+				//所以不需要删除，这只是元素的移动
+				//sell.removeChild(options[i]);
+				selr.appendChild(options[i]);//右边添加
+				i--;
+			}
+		}
+	});
+	
+}
+</script>
+</head>
+<body>
+<!--让下拉框多选 multiple="multiple"  展示多个 size  -->
+<select id="sell" multiple="multiple"  size=15 style="width: 150px;">
+	<option>选项一 </option>
+	<option>选项二 </option>
+	<option>选项三 </option>
+	<option>选项四 </option>
+	<option>选项五 </option>
+</select>
+
+<input id="moveSelRight" type="button" value=">">
+<input type="button" value=">>">
+<input type="button" value="<">
+<input type="button" value="<<">
+<select id="selr" multiple="multiple"  size=15 style="width: 150px;">
+	<option>选项1 </option>
+	<option>选项2 </option>
+	<option>选项3 </option>
+	<option>选项4 </option>
+	<option>选项5 </option>
+</select>
+</body>
+</html>

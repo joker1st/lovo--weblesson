@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(".cs1").click(function(){
+		//当前被点击的对象的下一个兄弟如果展示就隐藏 如果隐藏就展示
+		var other = $(this).siblings(".cs1").next("div");
+		var net =$(this).next("div");
+		if(net.css("display")=="none"){
+			//net.css("display","block");
+		 	net.slideDown(2000,function(){ 
+				console.log("已经展开了！");
+			}); 
+		 	other.slideUp(2000,function(){
+				console.log("已经隐藏了！");
+			}); 
+	/* 		net.fadeIn(3000,function(){ 
+				console.log("已经展开了！");
+			}); */
+		}else {
+			//net.css("display","none");
+			net.slideUp(2000,function(){
+				console.log("已经隐藏了！");
+			}); 
+		/* 	net.fadeOut(3000,function(){
+				console.log("已经隐藏了！");
+			});  */
+		}
+		
+	});
+});
+</script>
+<style type="text/css">
+#div1{
+	width: 200px;
+	border: 1px solid;
+}
+.cs1{
+	height: 30px;
+	text-align: center;
+	background-color: red;
+	border-bottom: 1px solid;
+}
+.cs2{
+	height: 20px;
+	text-align: center;
+	background-color: yellow;
+	border-bottom: 1px solid;
+}
+</style>
+</head>
+<body>
+<div id="div1">
+	<div class="cs1" >射雕英雄传	</div>
+	 <div   style="display: none;" >
+	 	<div class="cs2">郭靖</div>	
+	 	<div class="cs2">杨康</div>	
+	 	<div class="cs2">黄蓉</div>	
+	 	<div class="cs2">欧阳克</div>	
+	 </div>
+
+	<div class="cs1"  >神雕侠侣 </div>
+	<div   style="display: none;">
+		 	<div class="cs2">杨过</div>	
+		 	<div class="cs2">小龙女</div>	
+		 	<div class="cs2">尹志平</div>	
+		 	<div class="cs2">李莫愁</div>	
+	</div>
+	<div class="cs1"   >倚天屠龙记	</div>
+		 <div   style="display: none;" >
+		 	<div class="cs2">金毛狮王</div>	
+		 	<div class="cs2">张无忌</div>	
+		 	<div class="cs2">赵敏</div>	
+		 	<div class="cs2">周芷若</div>	
+		 	<div class="cs2">灭绝师太</div>	
+		 </div>
+	<div  class="cs1"  >鹿鼎记</div>
+	<div  style="display: none;" >
+		 	<div class="cs2">韦小宝</div>	
+		 	<div class="cs2">海大富</div>	
+		 	<div class="cs2">康熙</div>	
+	</div>
+</div>
+</body>
+</html>

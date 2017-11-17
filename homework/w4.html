@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var pro = [{pid:1,name:"四川省"},{pid:2,name:"云南省"},{pid:3,name:"江苏省"}];
+var city=[
+			{cid:1,name:"成都市",pid:1},
+			{cid:2,name:"绵阳市",pid:1},
+			{cid:3,name:"德阳市",pid:1},
+			{cid:4,name:"攀枝花市",pid:1},
+			{cid:5,name:"昆明市",pid:2},
+			{cid:6,name:"大理市",pid:2},
+			{cid:7,name:"丽江市",pid:2},
+			{cid:8,name:"南京市",pid:3},
+			{cid:9,name:"苏州市",pid:3},
+			{cid:10,name:"无锡市",pid:3},
+			{cid:11,name:"连云港市",pid:3},
+		];
+window.onload=function (){
+	var pr = document.getElementById("pr");
+	var cit =document.getElementById("cit");
+	cit.innerHTML="<option>-请选择城市-</option>";
+	
+	var str="<option value='-1'>-请选择省份-</option>";
+	for(var i in pro ){
+		str+="<option value='"+pro[i].pid+"'>"+pro[i].name+"</option>";
+	}
+	pr.innerHTML=str;
+	
+	pr.addEventListener("change",function (){
+		//先获取省份pid，根据pid找到对应的城市，最后把城市信息添加到idw为cit的select框中
+		var pid = pr.value;
+		if(pid==-1){
+			cit.innerHTML="<option>-请选择城市-</option>";
+			return;
+		}
+		var cityStr="";
+		for(var i in city){
+			if(city[i].pid==pid){
+				cityStr+="<option value='"+city[i].cid+"'>"+city[i].name+"</option>"
+			}
+		}
+		
+		cit.innerHTML=cityStr;
+	});
+	
+}
+</script>
+</head>
+<body>
+<select id="pr" >
+
+</select>
+<select id="cit"></select>
+</body>
+</html>

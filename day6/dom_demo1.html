@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		#gp{
+			width: 400px;
+			height: 300px;
+			border: 1px dotted red;
+		}
+		.claa{
+			height: 80px;
+			background-color: red;
+		}
+	</style>
+	<script type="text/javascript">
+		/* 节点类型 
+			Element：元素节点 nodeType 1
+			Text：文本节点 nodeType 3
+			Attr：属性节点 nodeType 2
+		*/
+		
+	window.onload=function (){
+		debugger;
+		 var gp = document.getElementById("gp");//元素节点
+		 var abc= gp.getAttribute("abc");//属性节点
+		 //文本节点 只能通过 firstChild 来获取
+		 var txt = gp.firstChild;
+		 var div2 = document.getElementById("div2");
+		 //获取到的是文本节点
+		 //var pre=div2.previousSibling;
+		 //获取前一个元素兄弟节点
+		 var pre = div2.previousElementSibling;
+		 var attrs = div2.attributes;
+		 //appendChild(node) 
+		 var node=	document.createElement("div");
+		 node.innerHTML="二二";
+		 //div2.innerHTML=div2.innerHTML+"<div id='div31'>长孙</div>";
+		 div2.appendChild(node);
+		 
+		 //根据标签名获取元素节点 getElementsByTagName(name)
+		 var divs = document.getElementsByTagName("div");
+		 //根据元素标签中name属性的值来获取元素节点 getElementsByName(name)
+		 var names = document.getElementsByName("老二");
+			
+		 var div5=document.getElementById("div5");
+		 div5.className="clab";
+		 
+	}
+
+	</script>
+</head>
+
+<body>
+
+<div id="gp" abc="cba">爷爷
+	<div id="div1" name="老二">老大</div>
+	<div id="div2"  name="老二" age="16" sex="男">老二</div>
+	<div id="div3">老三
+		<div id="div31">长孙</div>
+	</div>
+	<div id="div4" name="abab">老四</div>
+	<div id="div5" class="claa">老五</div>
+</div>
+</body>
+</html>

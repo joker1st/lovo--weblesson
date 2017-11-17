@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function alertDiv(){
+	/* 遮罩效果 */
+	var reg = document.getElementById("reg");
+	reg.style.left="0px";
+	reg.style.top="0px";
+	reg.style.right="0px";
+	reg.style.bottom="0px";
+	reg.style.display="block";
+}
+</script>
+</head>
+<body>
+<form action="">
+
+用户名：<input type="text"><br>
+密码：<input type="text"><br>
+
+<input type="button" value="登录">
+<input type="button" value="注册" onclick="alertDiv();">
+<div id="reg" style="display: none;position: fixed; background-color:rgba(0,0,0,0.1)">
+<br><br><br><br><br><br><br><br><br><br><br>
+	用户名：<input type="text"><br>
+          密码：<input type="text"><br>
+             重复 密码：<input type="text"><br>
+    <input type="button" value="注册" >         
+</div>
+</form>
+</body>
+</html>

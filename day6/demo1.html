@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 创建JS对象  可以动态的给对象添加属性和方法 */
+//1.工厂方式  
+
+var student = new Object();
+student.name="张三";
+student.age=18;
+student.study=function (){
+	console.log("学习");
+}
+student.study();
+student.gender="男";
+//2.构造函数方式
+function Person(){}
+var p1 = new Person();
+p1.name="李四";
+p1.eat=function (){
+	console.log("吃");
+}
+//3.JSON方式
+var person = {  name:"王五",
+				age:19,
+				eat:function(){  console.log("eat")},
+				gender:"女"  //最后一个元素后面没有逗号
+			};
+			
+person.eat();
+
+var personArr= [ { name:"找刘"},{name:"王遗风"},{name:"挟怨"} ];//一个数组中有三个对象
+for(var node in personArr){
+	console.log(personArr[node].name);
+}
+
+
+</script>
+</head>
+<body>
+<a href="demo4.html">点击</a>
+</body>
+</html>

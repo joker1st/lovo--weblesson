@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/*  innerWidth/innerHeight   客户区高宽*/
+console.log(window.innerWidth);
+console.log(window.innerHeight);
+//打开新窗口
+//window.open("http://www.baidu.com","百度");
+//window.status = "状态栏内容";
+/* var id=window.setTimeout("执行代码",毫秒数);
+window.clearTimeout(id) */
+var num=1;
+var st;
+var beg=function (){
+	console.log(num);
+	num++;
+	st=window.setTimeout("beg()",500);
+}
+function stop(){
+	//console.log(beg);
+	window.clearTimeout(st) 
+}
+//参数是返回的页面数，正数为前进
+
+function pre(){
+	window.history.go(1);
+}
+function back(){
+	window.history.go(-1);
+}
+////URL : 当前页面的URL。
+//debugger;
+var dd = document;
+console.log(document.URL);
+window.onload=function(){
+	console.log(document.images[0]);
+}
+/* host : URL中的主机名称
+pathname : URL中主机名后的部份
+prot : 端口
+protocol : 协议 */
+console.log(window.location.host);
+console.log(window.location.protocol);
+//跳转到新页面
+//location.href = "demo1.html";
+//获取URL
+console.log(location.href);
+//刷新
+/* 刷新页面location.reload(boolean);
+true : 从服务器刷新
+false : 本地刷新 */
+
+
+function reflush(){
+	location.reload(false);
+}
+//判断是什么浏览器
+console.log(navigator.userAgent);
+if(navigator.userAgent.indexOf("Chrome")>=0){
+	console.log("使用的是谷歌浏览器");
+}else if(navigator.userAgent.indexOf("MSIE")>=0){
+	console.log("使用的是IE浏览器");
+}
+</script>
+</head>
+<body>
+<a href="demo1.html"> XXXXX</a>
+<input type="button" onclick="beg()" value="开始">
+<input type="button" onclick="stop()" value="停止">
+
+<input type="button" onclick="pre()" value="前进">
+<input type="button" onclick="back()" value="后退">
+<input type="button" onclick="reflush()" value="刷新">
+<img alt="" src="photo/b1.jpg">
+<img alt="" src="photo/b2.jpg">
+<img alt="" src="photo/b3.jpg">
+<img alt="" src="photo/b4.jpg">
+
+</body>
+</html>

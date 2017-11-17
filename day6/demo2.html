@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var tbody;
+var stuArr =[{name:"张三",age:18,sex:"女"},
+			 {name:"李四",age:19,sex:"男"},
+			 {name:"王五",age:20,sex:"女"}
+			];
+function init(){
+	var str="";
+	for(var i in stuArr){
+		str+="<tr><td>"+stuArr[i].name+"</td><td>"+stuArr[i].age+"</td><td>"+stuArr[i].sex+"</td><td>"
+		+"<input type='button' value='删除' onclick='del("+i+")'>	"
+		+"<input type='button' value='修改' onclick='update("+i+")'>"
+		+"</td>	</tr>"
+	}
+	return str;
+}
+
+//console.log(str);
+/* 文档是按照自上而下的顺序加载的，当执行到 document.getElementById("tbody") 下面 tbody还没加载，所以访问不到
+	window.onload  代表当文档加载完执行的动作
+*/
+
+window.onload=function (){
+	tbody =document.getElementById("tbody");
+//	console.log(tbody);
+	tbody.innerHTML=init();
+}
+
+function addStu(){
+	//获取文本输入框中值
+	var snameVal = document.getElementById("sname").value;
+	var sageVal = document.getElementById("sage").value;
+	var ssexVal = document.getElementById("ssex").value;
+	console.log(snameVal+" "+sageVal+"  "+ssexVal);
+	//把获取到的值封装成一个对象，并把该对象放入对象数组
+	var temp = {name:snameVal,age:sageVal,sex:ssexVal};
+	stuArr[stuArr.length]=temp;
+	tbody.innerHTML=init();
+	//清空文本框
+	clear();
+}
+function del(index){
+	stuArr.splice(index,1); //根据角标删除数组中的元素 参数：index 角标 参数1 保存修改   
+	tbody.innerHTML=init();
+}
+function update(index){
+	var obj=stuArr[index];
+	document.getElementById("sname").value=obj.name;
+	document.getElementById("sage").value=obj.age;
+	document.getElementById("ssex").value=obj.sex;
+	document.getElementById("hid").value=index;
+}
+function save(){
+	//获取角标
+	var index = document.getElementById("hid").value;
+	if(index==null||index==""){
+		return;
+	}
+	var snameVal = document.getElementById("sname").value;
+	var sageVal = document.getElementById("sage").value;
+	var ssexVal = document.getElementById("ssex").value;
+	
+	stuArr[index].name=snameVal;
+	stuArr[index].age=sageVal;
+	stuArr[index].sex=ssexVal;
+	tbody.innerHTML=init();
+	//清空文本框
+	clear();
+}
+
+function clear(){
+	document.getElementById("sname").value="";
+	document.getElementById("sage").value="";
+	document.getElementById("ssex").value="";
+	document.getElementById("hid").value="";
+}
+</script>
+</head>
+<body>
+<table border="1"  style="width: 600px; ">
+<thead>
+<tr><th>姓名</th><th>年龄</th><th>性别</th><th>操作</th>	</tr>
+</thead>
+<tbody id="tbody">
+
+</tbody>
+</table>
+<br><br>
+<input id="hid" type="hidden" value="">
+姓名：<input id="sname" type="text" placeholder="请输入姓名">
+年龄：<input id="sage" type="text" placeholder="请输入年龄">
+性别：<input id="ssex" type="text" placeholder="请输入性别"><br>
+<input type="button" value="添加" onclick="addStu();">
+<input type="button" value="修改后保存" onclick="save();">
+</body>
+</html>

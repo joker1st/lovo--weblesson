@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 创建一个表单   action:指明表单数据提交给服务器哪个服务来处理
+	input: type属性取值如下：	  readonly 属性 只读 不能更改 disabled:只读而且不会提交给服务器
+			text:文本行	
+			button:普通的按钮
+			password:密码文本行
+			submit:有执行操作的按钮，用于提交表单。表单中input标签要想提交给服务器，必须加name属性
+			reset:重置表单，让表单恢复到原来的样子。
+			radio:单选，让单选按钮互斥，必须给单选按钮定义同一个名字
+			checkbox:复选
+			hidden:隐藏域,往往是防止表单重复提交。
+	textarea:  文本域		rows=行 cols=列
+	select:下拉框 ，默认是只选一个。属性multiple="multiple"可以让下拉框选中多个 .属性size可以决定展示多少个数据
+			下拉框的选项 option
+-->
+<form action="abc">
+	<p><label>用户名：</label> <input type="text" name="uname" value="lucy" disabled="disabled"   placeholder="请在这输入 用户名"></p>
+	<p><label>密&nbsp;&nbsp;&nbsp;码：</label> <input type="password" name="upwd"  placeholder="请在这输入密码"></p>
+	<p>	<input type="submit" value="提交">  <input type="reset" value="重置"></p>
+</form>
+<form action="">
+	<p><label>用户名：</label> <input type="text" name="uname"  placeholder="请在这输入 用户名"></p>
+	<p><label>密&nbsp;&nbsp;&nbsp;码：</label> <input type="password" name="upwd"  placeholder="请在这输入密码"></p>
+	<p><label>性&nbsp;&nbsp;&nbsp;别：</label><input type="radio" name="sex" value="男" >男 	
+									<input  name="sex" type="radio" value="女"	>女
+	 								<input  name="sex" type="radio" value="未知">未知	</p>
+	<p><label>兴趣爱好：</label><input type="checkbox" name="ch1" value="篮球" >篮球	
+							 <input type="checkbox" name="ch2" value="足球" >足球
+							 <input type="checkbox"  name="ch3" value="玩手机" >玩手机
+							 <input type="checkbox"  name="ch4" value="打LOL" >打LOL
+	</p>
+	<input type="hidden"  name="myhidden" value="我是隐藏域">
+	<p><label>个人简介：</label><textarea name="ta" rows="5" cols="20"></textarea> </p>
+	<p><label>出生年月：</label>
+				<select name="age"  multiple="multiple" size="10">
+					<option value="1892">1992</option>
+					<option value="1892">1993</option>
+					<option value="1892">1994</option>
+					<option value="1792">1995</option>
+					<option value="1692">1996</option>
+					<option value="1792">1997</option>
+					<option value="1992">1998</option>	
+				</select> 				
+	 </p>
+	<p>	<input type="submit" value="提交">  <input type="reset" value="重置"></p>
+</form>
+</body>
+</html>

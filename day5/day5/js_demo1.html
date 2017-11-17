@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+	JS是什么？
+	是一种解释型语言，被浏览器解释执行。
+	解释型语言：不需要编译，直接就可以执行。
+	简单理解：用来解析html的dom树，对里面的节点进行增删改查，设置节点属性和样式。
+	JavaScript和Java的区别
+	JavaScript是一种解释性语言，而java是编译行语言
+	JavaScript是用弱类型语言，而java是强类型语言。
+	JavaScript添加到XHTML的方法
+	方式一：
+		直接编写在元素的事件属性中。	
+		js弹框 alert（）；
+	方式二：
+		在(X)Html中嵌入JavaScript脚本
+	方式三:
+		在(X)Html中链接一个外部的javaScript文件。
+		开发中最常用的，把结构和行为分开，引入JS的script标签中不能再写JS代码。
+	方式四：写在a标签的href属性中
+ -->
+<script type="text/javascript">
+ 	/* 定义一个方法 */
+ 	function answer(){
+ 	/* 	alert("马云的老婆(马云很忙)") */
+ 		console.log("马云的老婆(马云很忙)")  /*相当于java中的System.out.println("")  */
+ 	}
+</script>
+<script type="text/javascript" src="js/js_demo1.js"></script>
+</head>
+
+<body>
+<p>王姑娘，白姑娘，一起坐在石头上</p>
+<input  type="button" value="点击出现答案" onclick='alert("碧");alert("ABC")' >
+<p>理万机是谁？</p><input  type="button" value="点击出现答案" onclick='answer();' >
+<p>理千机是谁？</p><input  type="button" value="点击出现答案" onclick='awe();' >
+<a href="javascript:alert('又没有网，哪来的跳转')">跳转到百度</a>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+window.onload=function (){
+	var tarea = document.getElementById("tarea");
+	//键盘事件顺序  keydown  keypress keyup
+	tarea.addEventListener("keypress",function(){
+/* 		var data = tarea.value;
+		console.log(data.length);
+		console.log("按下并弹起"); */
+		/* var notice = document.getElementById("notice");
+		notice.innerHTML="你还可以输入"+(10-data.length)+"个字符。" */
+	});
+	tarea.addEventListener("keydown",function(){
+	/* 	var data = tarea.value;
+		console.log(data.length);
+		console.log("按下"); */
+	});
+	tarea.addEventListener("keyup",function(){
+		var data = tarea.value;
+	/* 	console.log(data.length);
+		console.log("弹起"); */
+		var notice = document.getElementById("notice");
+		notice.innerHTML="你还可以输入"+(10-data.length)+"个字符。" 
+	});
+	
+}
+//等待body加载完自动执行该方法
+function bodyload(){
+	var notice = document.getElementById("notice");
+	notice.innerHTML="你还可以输入10个字符";
+	
+	var sel = document.getElementById("sel");
+	sel.addEventListener("change",function(){
+		//获取选中的值  方式1  方式2
+	/* 	var options = sel.getElementsByTagName("option");//返回的是一个数组
+		for(var i in options){
+			if(options[i].selected){//判断下拉框选项是否被选中
+				var val =options[i].value;
+				var photo = document.getElementById("photo");
+				photo.src="photo/b"+val+".jpg"
+				return;
+			}
+		} */
+		
+		var val =sel.value; //只有表单元素才有value值
+		var photo = document.getElementById("photo");
+		photo.src="photo/b"+val+".jpg"
+	});
+	var myspan = document.getElementById("myspan");
+	console.log(myspan.value)
+}
+</script>
+</head>
+<body onload="bodyload()">
+<textarea id="tarea" rows="10" cols="50" maxlength="10"></textarea>
+<span id="notice" style="color:gray;"></span>
+<br>
+<select id="sel" >
+	<option value="1">图片1</option>
+	<option value="2">图片2</option>
+	<option value="3">图片3</option>
+	<option value="4">图片4</option>
+	<option value="5">图片5</option>
+</select><br>
+<img id="photo" alt="" src="photo/b1.jpg">
+<span id="myspan" value="bbbb" >aaaa</span>
+</body>
+</html>

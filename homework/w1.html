@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var current;
+
+function changeColor(obj){
+	/* 改变点击元素的背景色 */
+	if(current==undefined){//第一次点击 
+		obj.style.backgroundColor="red";
+		current=obj;
+	}else {//不是第一次点击
+		
+		if(obj.style.backgroundColor=="red"){//如果是红色则设置为白色
+			obj.style.backgroundColor="white";
+		}else{
+			obj.style.backgroundColor="red";
+		}
+		
+		if(current!=obj){
+			current.style.backgroundColor="white";//把原来是红色的行设置成白色
+		}
+		//把当前obj赋值给current
+		current=obj;
+	}
+	
+}
+
+</script>
+</head>
+<body>
+
+<table border="1" style="width: 500px;height: 300px;">
+<thead>
+<tr><th>ss</th><th>ss</th> </tr>
+</thead>
+<tbody >
+<!-- 点击谁，就改变谁的颜色 把点击的对象传递过去  this指代被点击的元素对象  -->
+<tr onclick="changeColor(this);" ><td></td><td></td>  </tr>
+<tr onclick="changeColor(this);"><td></td><td></td>  </tr>
+<tr onclick="changeColor(this);"><td></td><td></td>  </tr>
+<tr onclick="changeColor(this);"><td></td><td></td>  </tr>
+<tr onclick="changeColor(this);"><td></td><td></td>  </tr>
+<tr onclick="changeColor(this);"><td></td><td></td>  </tr>
+</tbody>
+</table>
+</body>
+</html>

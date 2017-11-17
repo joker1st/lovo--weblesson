@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 
+ 失去焦点： blur
+获得焦点：focus
+手机正则表达式：/^1[3578][0-9]{9}$/
+邮箱正则表达式：/^[0-9a-z]{5,11}@[0-9a-z]{2,5}[.](com|cn)$/
+ */
+ var booleanArr=new Array();
+ window.onload=function(){
+	var uname= document.getElementById("uname");
+	var namespan=document.getElementById("namespan");
+	var pwd1 = document.getElementById("pwd1");
+	var pwd2 = document.getElementById("pwd2");
+	var pwdspan = document.getElementById("pwdspan");
+	uname.addEventListener("blur",function(){
+		console.log("失去焦点");
+		//判断用户名是否合法
+		var regex=/^[0-9a-zA-Z]{4,10}$/;//正则表达式必须以/^开头  以$/结束
+		var str = uname.value;
+		if(regex.test(str)){
+			namespan.innerHTML="√用户名可以使用"
+			namespan.style.color="green";
+			booleanArr[0]=true;
+		}else{
+			namespan.innerHTML="×用户名不合法！"
+			namespan.style.color="red";
+			booleanArr[0]=false;
+		}
+	});
+	
+	pwd2.addEventListener("blur",function(){
+		//判断两次输入的密码是否一致，根据密码长度定义强度
+		var pwd1Val =pwd1.value;
+		var pwd2Val =pwd2.value;
+		if(pwd2Val==""){
+			pwdspan.innerHTML="×密码不能为空";
+			pwdspan.style.color="red";
+			return;
+		}
+		if(pwd1Val==pwd2Val){
+			var str="";
+			if(pwd2Val.length>8){
+				str="高";
+			}else if(pwd2Val.length>5){
+				str="中";
+			}else {
+				str="低";
+			}
+			pwdspan.innerHTML="√密码可以使用，强度为"+str;
+			pwdspan.style.color="green";
+			booleanArr[1]=true;
+		}else{
+			pwdspan.innerHTML="×密码输入不一致";
+			pwdspan.style.color="red";
+			booleanArr[1]=false;
+		}
+		
+	});
+/* 	uname.addEventListener("focus",function(){
+		console.log("获得焦点");
+	}); */
+}
+/*
+fucntion (obj,objSpan,正则表达式，错误信息，正确信息){
+	
+}
+
+*/
+ 
+function checkForm(){
+	return booleanArr[0]&&booleanArr[1];
+}
+</script>
+</head>
+<body>
+<form action="" onsubmit="return checkForm();"  >
+	<p> 用户名：<input id="uname" name="uname" type="text" placeholder="用户名由数字字母组成"> <span id="namespan">用户名不低于4个不大于10个字符且有数字字母组成</span> </p>
+	<p> 密码：<input id="pwd1" name="pwd1" type="text" > </p>
+ 	<p>重复密码：<input id="pwd2" name="pwd2"  type="text" > <span id="pwdspan"></span> </p>
+ 	<p>手机号：<input type="text" > <span id="phonespan"></span></p>
+	<p> 邮箱地址：<input type="text" > <span id="mailspan"></span></p>
+ <p><input type="reset" value="重置">
+ <input type="submit" value="提交"></p>
+</form>
+</body>
+</html>

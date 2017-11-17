@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/*继承的实现
+	1.对象冒充 ：新的类冒充旧的类
+	2.原型链
+	3.混合方式
+*/
+
+function People(name){
+	this.name = name;
+	this.say = function(){
+		console.log("I am "+this.name);
+	}
+}
+
+function WhitePeople(name){
+	this.inherit = People; // 冒充
+	this.inherit(name); //相当于调用super
+	delete this.inherit; //删除继承
+	
+	this.color = function(){
+		console.log("I am white people.");
+	}
+}
+var p1 = new WhitePeople("lucy");
+p1.say();
+console.log(p1.name);
+p1.color();
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

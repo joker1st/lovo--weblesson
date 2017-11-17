@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!--
+	JS变量
+		弱类型，不一定要初始化。
+		变量的定义：var 变量名
+	JavaScript数据类型分为：原始类型和引用类型
+	原始类型：
+	 Number:
+		不管是小数还是整数都是number
+	 String:
+	 undefined:
+	 boolean:
+	 null:
+	 引用类型：
+		 原生对象
+			由JavaScript提供，独立于浏览器的对象。
+			Object,Array,String,Boolean,Number,Date,RegExp(正则表达式)
+		内置对象
+			也是一种原生对象，只是在使用时不需要初始化。
+			Global,Math
+		宿主对象
+			与浏览器有关的对象。
+		BOM,DOM
+			自定义对象	
+			
+	数据类型转换：
+	
+	原生对象 - Object:
+		Object是JavaScript中所有类的父类。
+		var x = new Object();
+  -->
+ <script type="text/javascript">
+ 	var abc;
+ 	console.log(abc==undefined);
+ 	
+ 	var aa=1;
+ 	console.log(aa);
+ 	var bb="要优雅，不要污";
+ 	console.log(bb);
+ 	var cc=1.52;
+ 	console.log(cc);
+ 	console.log(typeof(cc));
+ 	console.log(typeof(bb));
+ 	console.log(typeof(aa));
+ 	
+ 	var dd ="1234";
+ 	console.log(typeof(parseInt(dd)));
+ 	var ee ="1234你好";
+ 	console.log(parseInt(ee)+1234);
+ 	var ff ="你好1234你好";/* parseInt不能转换非数字开头的字符串 */
+ 	console.log(parseInt(ff));
+ 	var gg="5.1.52.52";
+ 	console.log(parseFloat(gg))
+ 
+ 	var x = new Object();
+ 	x.name="张三";
+ 	console.log(x);
+ 	console.log(x.constructor);
+ 	console.log(x.prototype);
+ 	console.log(x.hasOwnProperty("name"));
+ 	//创建数组对象
+ 	var a = new Array();  //定义一个数组，长度为0
+	a[0]="xxxx";
+ 	a[1]="yyyy";
+ 	a[2]="zzzzz";
+ 	a[3]=25;
+ 	console.log(a);
+ 	console.log(a.length);
+ 	var c = new Array(1,2,3,4,5); //定义一个数组，并赋值。
+ 	console.log(c);
+ 	//push("");//加入元素
+ 	a.push("aaaa");
+	console.log(a);
+ 	//Join("d");//在每个元素后加入d（最后一个除外），并做元素连接，最后一个元素不加d
+ 	console.log(a.join("d"));//结果：xxxxdyyyydzzzzzd25daaaa
+ 	//在JS中大量字符串拼接也很消耗性能，使用join完成字符串拼接效率高
+ 	var str = new Array();
+ 	for(var i=0;i<=999;i++){
+ 		str[i]=i+"";
+ 	}
+ 	str.join("");//完成字符串的拼接
+ 	//2004年5月25距离1970.1.1 00:00：00的毫秒数
+ 	console.log(Date.parse("May 25,2004"));
+ 	var date = new Date();
+ 	console.log(date.getFullYear()+"   "+date.getMonth()+"  "+date.getDate());//月份比实际月份小1
+ 	var s = new String("hello world");
+ 	console.log(typeof(s));
+ 	var b = s instanceof String;
+ 	console.log(b); //输出true
+	//不需要指定参数类型
+	/*函数的返回值
+		函数的返回值不需要声明
+		函数用return进行返回
+		如果函数没有明确的返回值，则返回值为undefined 
+	函数也是一个对象	
+	调用函数可以任意传参
+	*/
+
+ 	function  abc(a,b,c){
+ 		console.log(a);
+ 		console.log(b);
+ 		console.log(c);
+ 		return "xyz";
+ 	}
+ 	abc(1,"2",true);
+ 	abc(1);
+ 	abc(1,"2");
+ 	abc();
+ 	abc(1,2,3,4)
+ 	//console.log(abc(1,"2",true));
+ var ccc = function(){
+	 console.log("ccc");
+	 return "abc";
+ }
+ console.log(ccc);//不加括号，打印方法本身
+ console.log(ccc());//加括号 代表调用
+ </script>
+
+</head>
+<body>
+ <script type="text/javascript">
+ 	abc("aaa","bbb","ccc");
+ </script>
+<p onclick="abc('xxxx')" >xxxxx</p>
+</body>
+</html>

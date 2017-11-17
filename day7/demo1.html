@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 
+	事件流：页面上不止一个元素可响应相同的事件
+	事件流实现方式：
+	1.事件冒泡(IE)。  先执行事件源代码，再执行父容器事件代码
+	2.事件捕获(NetsCape)。 先执行父容器事件代码，再执行事件源事件代码
+	3.事件处理   可以选择先执行事件源代码，还是先执行父容器代码
+	
+	事件指派方式
+	1.传统事件处理程序指派方法  （在元素标签上直接添加事件属性，进行绑定）
+		被广泛支持，兼容性好
+	2.现代事件处理程序指派方法。
+		步骤：1.先取得要绑定事件的元素节点
+			2. 情况一：在DOM浏览器中 通过 addEventListener 添加事件处理程序,true:捕获阶段; false:冒泡阶段
+			          情况二：在IE8以下 attachEvent("onclick",click1);
+		同一个事件可以绑定多个函数
+		删除方便
+		只被现代浏览器支持。
+		浏览器之间存在不兼容的问题。
+
+*
+*/
+/* function outClick(){
+	console.log("外面的div被点击了！")
+}
+function inClick(){
+	console.log("里面的div被点击了！")
+}
+ */
+ 
+window.onload=function(){
+/* 	 //1.
+	 var div1 = document.getElementById("inner");
+
+	//2.在DOM浏览器中添加事件处理程序,true:捕获阶段; false:冒泡阶段
+	div1.addEventListener("click",function (){
+		console.log("里面的div被点击了！");
+	},false);
+	//删除事件处理程序
+	//div1.removeEventListener("click",click1,false);
+
+	var outer = document.getElementById("out");
+	outer.addEventListener("click",function(){
+		console.log("外面的div被点击了！");
+	});
+	outer.addEventListener("click",function(){
+		console.log("外面的divVVVVVV被点击了！");
+	}); */
+	
+	if(navigator.userAgent.indexOf("Chrome")>=0){
+		 var div1 = document.getElementById("inner");
+
+			//2.在DOM浏览器中添加事件处理程序,true:捕获阶段; false:冒泡阶段
+			div1.addEventListener("click",function (){
+				console.log("里面的div被点击了！");
+			},false);
+			//删除事件处理程序
+			//div1.removeEventListener("click",click1,false);
+
+			var outer = document.getElementById("out");
+			outer.addEventListener("click",function(){
+				console.log("外面的div被点击了！");
+			});
+			outer.addEventListener("click",function(){
+				console.log("外面的divVVVVVV被点击了！");
+			});
+	}else if(navigator.userAgent.indexOf("MSIE")>=0){
+		var div1 = document.getElementById("inner");
+
+		//添加事件处理程序
+		div1.attachEvent("onclick",click1);
+		//删除事件处理程序
+		//div1.detachEvent("onclick",click1);
+
+		function click1(){
+			console.log("里面的div被点击了！");
+		} 
+		
+		var outer = document.getElementById("out");
+		outer.attachEvent("onclick",function(){
+			console.log("外面的div被点击了！");
+		});
+		outer.attachEvent("onclick",function(){
+			console.log("外面的divVVVVVV被点击了！");
+		});
+	}
+	
+	
+ }
+ 
+//思考：点击内部div哪个函数先执行？
+/*  */
+
+
+</script>
+<style type="text/css">
+#out{
+	width: 300px;
+	height: 300px;
+	background-color: blue;
+}
+#inner{
+	width: 200px;
+	height: 200px;
+	background-color: yellow;
+}
+</style>
+</head>
+<body>
+<div id="out"  ><!--  onclick="outClick();"-->
+	<div id="inner"   ></div><!-- onclick="inClick();"  -->
+</div>
+</body>
+</html>

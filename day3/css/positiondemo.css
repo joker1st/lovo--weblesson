@@ -1,0 +1,76 @@
+ #div1{
+ 	width: 200px;
+ 	height: 100px;
+ 	background-color: blue;
+ 	
+ }
+ #div2{
+ 	width: 400px;
+ 	height: 400px;
+ 	background-color: yellow;
+ 	position: relative; /* 黄色div设置为相对定位 */
+ 	/* left: 200px; *//* 元素相对于原来位置向左偏移了200px */
+ 	/* top:100px; */
+ }
+  #div3{
+ 	width: 200px;
+ 	height: 100px;
+ 	background-color: red;
+ }
+ #div4{
+ 	width: 150px;
+ 	height: 150px;
+ 	background-color: blue;
+ 	top:100px;
+ 	left:100px;
+ 	position: absolute;
+ }
+  #div5{
+ 	width: 100px;
+ 	height: 100px;
+ 	background-color: black;
+ 	position: absolute;
+ 	top:100px;
+ 	left: 100px;
+ }
+ #div6{
+ 	width:200px;
+ 	height: 200px;
+ 	background-color: green;
+ 	position: fixed;
+ 	right: 0px;
+ 	top: 200px;
+ }
+ #p1{
+ 	width: 400px;
+ 	 /*处理溢出 默认visible hidden：超出隐藏
+ 	  scroll：始终有滚动条
+ 	   auto:超出时才有滚动条 */
+ 	overflow:auto;
+ 
+ }
+ .photo{
+/*  设置元素是否可见
+	1.display:none；
+	2.visibility：hidden
+	区别：dispaly隐藏后不占文档流位置，visibility隐藏后仍占文档流位置。
+	
+ */
+ 	/* display:none; */ /*元素隐藏而且不占文档流的位置 */
+ 	/* display: block; *//*按照块级元素显示*/
+ 	/* display: inline; */ /*按照内嵌元素显示  */
+ 	/*元素显示*/
+ 	/* visibility: hidden; */ /*元素隐藏*/
+ 	
+ 	
+ }
+ .abc{
+ 	width: 50px;
+ 	height: 50px;
+ 	margin: 10px;
+ 	background-color: red;
+ 	display: inline-block;
+ }
+ 
+ 
+ 

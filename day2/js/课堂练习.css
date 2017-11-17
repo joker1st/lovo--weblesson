@@ -1,0 +1,22 @@
+#p1{
+	color: red;
+}
+.divColor{
+	/* ±³¾°É«  */
+	background-color: green;
+} 
+div{
+	width: 600px;
+	height: 300px;
+}
+#div4 span{
+	color: blue;
+}
+
+#div4 span:hover{
+	color: red;
+	cursor: pointer;
+}
+*{
+	font-size: 20px;
+}

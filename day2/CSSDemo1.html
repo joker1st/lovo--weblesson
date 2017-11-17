@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+#myp{
+	font-size: 30px;
+	color: red;
+}
+#chioce{
+	color: green;
+}
+.abc{
+	color: green;
+}
+div{
+	background-color: rgb(200,200,0);/*背景色  */
+	width: 600px;
+	height: 200px;
+}
+div p{
+	color: red;
+}
+div p:hover{
+	color: orange;
+	cursor: pointer;/* 改变鼠标样式为小手 */
+}
+.abc #face-red{
+	color: red;
+}
+*{
+	font-size: 20px;
+}
+#aa1:link{ /* 未访问的链接样式 */
+	color:red;
+/* 	text-decoration:line-through; */ /*none 消除下划线  underline 下划线   overline 上划线 line-through 中划线*/
+}
+#aa1:VISITED { /* 访问后的链接样式 */
+	color:blue;
+}
+#aa1:hover{ /* 鼠标放上去的样式 */
+	color:red;
+}
+p[id]{
+	background-color: yellow;
+}
+p[abc=cba]{
+	font-size: 40px;
+}
+</style>
+<link rel="stylesheet" href="js/CSSDemo1_CSS.css">
+</head>
+<body>
+<!-- 
+	CSS样式： 目前写法，style="属性名:属性值;属性名:属性值……"
+	font-size:字体大小
+	font-weight：字体是否加粗
+	color: 1.使用预定义的颜色，如：green 2.使用rgb  3.rgba 最后一个参数代表透明度 ，取值范围是0-1，0代表透明，1代表不透明
+	font-family:选择字体
+	font-style:字体倾斜程度
+	
+	在网页中引用CSS样式有三种方式：
+		1.内联式  
+			直接在元素标签上写style="属性名:属性值;属性名:属性值……"
+		2.嵌入式
+			在网页中嵌入CSS代码
+		3.外联式
+			把CSS写在网页之外，当要使用CSS样式时，把CSS引入即可。这也是把结构和表现分离。
+			怎么引入？<link rel="stylesheet" href="" />
+			也是开发中最常用
+	思考问题：当内联式，嵌入式，外联式重复了，会优先选择谁？给它们排个序
+		 !important,最终样式选择
+		!important>内联>嵌入  外联 (对于新浏览器谁后加载，就执行谁的样式)
+	想要给元素添加CSS样式，必须先找到该元素(先选中元素)，怎么找？
+	选择器：
+		1.ID选择器  以#+id属性的值，如：#outer{}
+		2.类选择器  .+class属性的值 ，如：.abc{}
+		3.元素(标签)选择器   直接以元素(标签)名字开头 ，如：div{} 
+			只让div下面的p标签颜色为红色 ，其它p标签还是原来的样式
+		4.包含选择器   实际就是ID 类  元素等选择器的组合 中间以 空格或>隔开
+		 给ID 类 元素 选择器 优先级排序  id > 类 > 元素 >通配符
+		5.通配符  * 开头，代表选择网页中所有的元素
+		6.伪类选择器  必须依赖于真实的元素  link  visted hover active
+		7.伪元素选择器（了解）
+		8.属性选择器  p[id]{
+			所有有id属性的p标记
+            background-color: yellow;
+        } 
+        
+        input[type=password]{所有密码框拥有该样式
+            background-color: yellow;
+        }
+		
+ -->
+<p style="font-size: 20px;font-weight:bold;color:rgba(0,0,255,1);font-family:'微软雅黑';font-style:normal;" >大吉大利，今晚吃鸡！</p>
+<p id="myp" >嵌入式样式展示</p>
+<p id="outer">外联式样式展示 </p>
+<p id="chioce" >样式选择</p>
+<p class="abc">文学中常有这样的描述，她很害羞，<span id="face-red">脸都红了</span> 或者他很生气，<span id="face-green">脸都绿了</span>。见过脸红的，有没有见过脸绿的？</p>
+<p class="abc">文学中常有这样的描述，她很害羞，脸都红了或者他很生气，脸都绿了。见过脸红的，有没有见过脸绿的？</p>
+<p class="abc">文学中常有这样的描述，她很害羞，脸都红了或者他很生气，脸都绿了。见过脸红的，有没有见过脸绿的？</p>
+<p class="abc">文学中常有这样的描述，她很害羞，脸都红了或者他很生气，脸都绿了。见过脸红的，有没有见过脸绿的？</p>
+<div> <!-- div p span  -->
+	<p>方力申个垃圾格拉斯 <span>gas<</span>家噶嘎嘎的</p>
+	<p>方力申个垃圾格拉斯gas家噶嘎嘎的</p>
+	<p>方力申个垃圾格拉斯gas家噶嘎嘎的</p>
+</div>
+<p>方力申个垃圾格拉斯gas家噶嘎嘎的</p>
+<p>方力申个垃圾格拉斯gas家噶嘎嘎的</p>
+<a id="aa1" href="#">链接1</a>
+<a id="aa2" href="##">链接2</a>
+<p abc="cba" >了解gas的价格拉高</p>
+</body>
+</html>

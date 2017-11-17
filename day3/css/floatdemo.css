@@ -1,0 +1,59 @@
+.aa{
+	border: 1px solid red;
+}
+
+.bb{
+	width: 100px;
+	height: 100px;
+	background-color: green;
+	float:left;   /*最终效果?  */
+}
+.cc{
+	width: 150px;
+	height: 150px;
+	background-color: blue;
+	float: right;  /*脱离文档流：  */
+}
+.dd{
+	width: 100px;
+	height: 100px;
+	background-color: yellow;
+}
+#pw{
+	/* clear: left; *//*  清除左浮动*/
+	clear: right;/*清除右浮动*/
+	clear: both;/* 清除 左右浮动*/
+}
+#port{
+	height:50px;
+	width:925px;
+	/*去掉无序列表的样式 */
+	list-style-type: none;
+	border: 2px solid red;
+	padding: 0px;
+	margin: 0 auto;/*竖直结构为0，水平相对于父元素居中  */
+}
+#port li{
+	width: 150px;
+	height: 50px;
+	background-color: yellow;
+	margin-left: 5px; /*1个参数上下左右都是10，2个参数分别代表上下  和 左右  */
+	/* 水平居中 */
+	text-align: center;
+	/* 文字上下居中 */
+	line-height: 50px;
+	float: left;
+	cursor: pointer;
+}
+#port li:hover{
+	font-size: 16px;
+	font-weight: bold;
+	color: red;
+	background-color: blue;
+}
+#div2{
+	height: 50px;
+	width: 960px;
+	/* background-color: rgb(123,233,158); */
+	border: 2px solid rgb(123,233,158);
+} 

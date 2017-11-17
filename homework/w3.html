@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload=function(){
+	var tarea = document.getElementById("tarea");
+	tarea.addEventListener("keyup",function(){
+		var data = tarea.value;
+		var myspan=document.getElementById("myspan");
+		myspan.innerHTML="你还可以输入"+(20-data.length)+"个字符。"
+	});
+	
+	var mysubmit = document.getElementById("mysubmit");
+	mysubmit.addEventListener("click",function(){
+		//获取文本域中的内容，再获取买家名字，把名字和内容封装到p标签中，最后把p标签添加到id为list的div中
+		var data =tarea.value;
+		//获取非表单元素中间的内容，要用innerHTML，只有表单元素才有value
+		var buyer = document.getElementById("buyer").innerHTML;
+		var str="<p>"+buyer+data+"</p>"
+		var list =  document.getElementById("list");
+		list.innerHTML=list.innerHTML+str;
+		//清空评论内容
+		tarea.value="";
+		var myspan=document.getElementById("myspan");
+		myspan.innerHTML="你还可以输入20个字符。"
+	});
+	
+}
+</script>
+</head>
+<body>
+<div style="width: 600px;height: 100px;background-color: yellow;">商品</div>
+<div>
+  <span id="buyer" >买家1：</span><br>
+  <textarea id="tarea" rows="10" cols="50" maxlength="20" style="float: left;" ></textarea>
+  <span id="myspan" style="color: gray;">你还可以输入20个字符。</span>
+  <p style="clear: both;"><input id="mysubmit" type="button" value="提交评论"></p>
+</div>
+<div id="list"></div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var imgArr=["img/11.jpeg","img/22.jpeg","img/33.jpeg","img/b1.jpg","img/b2.jpg","img/b3.jpg","img/b4.jpg"];
+var index=1;
+var img1X;
+var img2X;
+var img1;
+var img2;
+var imgm;
+window.onload=function (){
+	img1=document.getElementById("img1");
+	img2=document.getElementById("img2");
+	imgMove();
+}
+
+function imgMove(){
+	move();
+	window.setTimeout("imgMove()",3000);
+}
+
+function move(){
+
+	img1X=parseInt(img1.style.left);
+	img2X=parseInt(img2.style.left);
+	
+	img1X=img1X-1;
+	img2X=img2X-1;
+	
+	img1.style.left=img1X+"px";
+	img2.style.left=img2X+"px";
+	imgm=window.setTimeout("move()",5);
+	if(img1X==-300){//代表第一张图片播完了
+		index++;
+		if(index>=imgArr.length){//整个图片数组播完，从头再播
+			index=0;
+		}
+		img1X=300;//播完就定位到后面
+		img1.style.left=img1X+"px";
+		//更改图片路径
+		img1.src=imgArr[index];
+		window.clearTimeout(imgm);
+	}else if(img2X==-300){
+		index++;
+		if(index>=imgArr.length){//整个图片数组播完，从头再播
+			index=0;
+		}
+		img2X=300;//播完就定位到后面
+		img2.style.left=img2X+"px";
+		//更改图片路径
+		img2.src=imgArr[index];
+		window.clearTimeout(imgm);
+	}
+}
+</script>
+</head>
+<body>
+<div id="imgDiv" style="width: 300px;height: 200px; position: relative;border: 2px solid blue; margin: 0 auto;overflow: hidden;">
+	<img id="img1" alt="" src="img/11.jpeg" style="position: absolute;left: 0px;" width="300px" height="200px">
+	<img id="img2" alt="" src="img/22.jpeg" style="position: absolute;left: 300px;" width="300px" height="200px">
+</div>
+</body>
+</html>

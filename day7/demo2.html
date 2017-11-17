@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- event 对象 封装了事件 -->
+<script type="text/javascript">
+//console.log(arguments[0]);
+window.onload=function(){
+/* 	var btn = document.getElementById("btn");
+ 	if(document.addEventListener){//dom
+		btn.addEventListener("click",function(){
+			console.log("点击了按钮！");
+			var e = arguments[0];//只能出现在方法里
+			console.log(e);
+		});	
+	
+	}else if(document.all){//IE
+		btn.attachEvent("onclick",function(){
+			console.log("IE点击了按钮！");
+		});
+		var e = window.event;
+		console.log(e);
+		console.log("IE");
+	}  */
+}
+
+function aa(){
+	var e= window.event||arguments[0];
+	//console.log(e);
+	console.log("点击按钮");
+	//在IE ,chrome使用
+	e.cancelBubble=true;
+	//firefox
+	//e.stopPropagation()
+}
+function  bb(){
+	console.log("点击div");
+}
+</script>
+</head>
+<body>
+<div id="div1" onclick="bb()">
+	<input id="btn" type="button" value="来点我" onclick="aa();">
+</div>
+</body>
+</html>

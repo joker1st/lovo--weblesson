@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 事件处理程序的返回值，可以影响事件的默认行为。 */
+function aa(){
+	//window.alert("xx")
+     if(window.confirm("你确定要跳转么？")){
+    	location.href="demo3.html" 
+     };//返回值是boolean型，确定 true 取消false
+      
+}
+function bb(){
+	console.log("你的用户名不正确");
+	return false;
+}
+//鼠标右键
+document.oncontextmenu=function (){
+	var e = window.event||arguments[0];
+	console.log(e);
+	console.log("右键点击了");
+	var x=e.clientX;
+	var y=e.clientY;
+	//让菜单显示在鼠标点击位置
+	var menu = document.getElementById("menu");
+	menu.style.display="block";
+	menu.style.left=x+"px";
+	menu.style.top=y+"px";
+	return false;	
+}
+document.addEventListener("click",function(){  
+	var menu = document.getElementById("menu");
+	menu.style.display="none";
+});
+</script>
+</head>
+<body>
+<a href="javascript:aa();">点击跳转</a>
+<form action="aaa" onsubmit="return bb()"  >
+用户名：<input name="uname" type="text" >
+<input type="submit" value="提交">
+</form>
+<div id="menu"   style="width: 200px;height: 300px;background-color: yellow; position: fixed;display: none;">
+	<ul>
+		<li>雪碧</li>
+		<li>百事</li>
+		<li>红牛</li>
+	</ul>
+</div>
+</body>
+</html>
